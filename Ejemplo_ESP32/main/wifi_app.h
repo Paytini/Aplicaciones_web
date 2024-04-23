@@ -12,7 +12,7 @@
 #define WIFI_APP_MAX_RETRIES 10
 
 //Constantes para FreeRTOS task
-#define WIFI_APP_STACK_SIZE 2048
+#define WIFI_APP_STACK_SIZE 4096
 #define WIFI_APP_TASK_PRIORITY 5 //6 is top priority, for tasks related to interruptions
 #define WIFI_APP_CORE_ID 0 
 
