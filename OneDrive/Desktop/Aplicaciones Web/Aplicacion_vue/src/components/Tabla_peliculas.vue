@@ -8,7 +8,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="pelicula in peliculas" :key="pelicula.id">
+      <tr v-for="pelicula in peliculas" :key="pelicula.id" @click="nombre_pelicula(pelicula)" style="cursor: pointer;">
         <td>{{ pelicula.movie }}</td>
         <td>{{ pelicula.rating }}</td>
         <td>
@@ -20,7 +20,17 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue';
+import { defineProps, defineEmits } from 'vue';
+
+const emit = defineEmits(['nombre_pelicula']);
+
+
+function nombre_pelicula(pelicula) {
+  const payload = {
+    movie: pelicula.movie
+  };
+  emit('nombre_pelicula', payload); // Emitir el payload completo
+}
 
 //props que se recibirán en el componente
 const props = defineProps({
@@ -29,6 +39,8 @@ const props = defineProps({
     required: true,
   },
 });
+
+
 </script>
 
 <style scoped>
