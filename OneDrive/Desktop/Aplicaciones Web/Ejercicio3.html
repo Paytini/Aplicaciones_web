@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simulación de números aleatorios</title>
+</head>
+<body>
+  <h1>Simulación de números aleatorios</h1>
+  <input id="num-repeticiones" type="number" placeholder="Introduzca el número de repeticiones">
+  <button id="simular">Simular</button>
+  <div id="resultados"></div>
+
+  <script>
+    const numRepeticionesInput = document.getElementById('num-repeticiones');
+    const boton = document.getElementById('simular');
+    const resultadosDiv = document.getElementById('resultados');
+
+    boton.addEventListener('presionar', () => {
+      const numRepeticiones = numRepeticionesInput.value || 10;
+      let prom1 = 0;
+      let prom2 = 0;
+
+      for (let i = 0; i < numRepeticiones; i++) {
+        const a = Math.random() * 100;
+        console.log(a);
+        if (a >= 50) {
+          prom1++;
+        } else {
+          prom2++;
+        }
+      }
+
+      const resultadosHtml = `
+        <p>Mayor  o igual 50 porcentaje: ${(prom1 / numRepeticiones) * 100}%</p>
+        <p>Menor 50 porcentaje: ${(prom2 / numRepeticiones) * 100}%</p>
+      `;
+      resultadosDiv.innerHTML = resultadosHtml;
+    });
+  </script>
+</body>
+</html>

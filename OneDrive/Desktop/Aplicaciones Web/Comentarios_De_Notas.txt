@@ -1,0 +1,127 @@
+< < < HTML > > >
+
+> HyperText Markup Language (Initials)
+
+Lenguaje para la estructuracion de documentos y especificacion de hipervinculos.
+Lenguaje incrustado, las instrucciones o etiquetas se insertan en el mismo documento.
+Sirve para darle estructura a la informacion que se despliegara en el servidor.
+
+Esqueleto de HTML:
+
+ <!DOCTYPE html>
+<!-- Comentarios -->
+
+<html>
+    <head>
+    </head>
+    <body>
+
+    </body>
+</html>
+
+
+< < < CSS > > >
+> Cascading Style Sheets (initials)
+
+Utilizado para describir la presentacion de documentos HTML
+
+
+Bibliotecas para el diseño de mi aplicacion:
+
+> Bootstrap
+> Tailwind
+
+< < < XML > > >
+Se puede crear sus propias etiquetas , y en el HTML no, ya viene definido sus propias etiquetas.
+
+
+
+DOM (Documento Object Model)
+
+> Representa la estructura de la pagina web como nodos y objetos en forma de arbol.
+
+JAVASCRIPT 
+
+Ambientes de eejecucion:
+- Navegadores web
+- Node js
+
+< TypeScript >
+
+
+console.log("Hola Mundo");
+console.log('Hola Mundo');
+let s = "nuevo";
+console.log("Hola " + s + " Mundo");
+console.log(2+4+5);
+
+
+Listas
+
+
+const elementos = {
+    "agua",
+    "fuego",
+    "viento",
+    "aire"
+};
+
+for(let i = 0; i < elementos.length; i++){
+    console.loge(elementos[i]);
+
+}
+
+
+ASYNC/AWAIT
+
+async function invocaServicios() {
+    let resultado = await servicio(1,1000);
+}
+
+
+Programacion en Vue
+
+-> <<<<<<<<<<<<<<  Archivo App.Vue >>>>>>>>>>>>>>>> 
+<!--
+Say Hello World with Vue!
+-->
+
+<script setup>
+import { ref } from 'vue'
+import Comp from './Comp.vue'
+
+// A "ref" is a reactive data source that stores a value.
+// Technically, we don't need to wrap the string with ref()
+// in order to display it, but we will see in the next
+// example why it is needed if we ever intend to change
+// the value.
+const message = ref('Hello World!')
+
+const mensajes = ref([
+  "Hola Payta",
+  "Hola Diana"
+])
+
+function mensajeAleatorio(){
+  return message.value = 	mensajes.value[Math.floor(Math.random()*2)]
+
+}
+</script>
+
+<template>
+  <Comp></Comp>
+  <h1 @click="mensajeAleatorio">{{ message }}</h1>
+</template>
+
+-> <<<<<<<<<<<<<<<<<< Archivo Comp.vue >>>>>>>>>>>>>>>>>>>>>>
+
+<script setup></script>
+
+<template>
+  <h1>
+    Componente 1
+  </h1>
+</template>
+
+
+

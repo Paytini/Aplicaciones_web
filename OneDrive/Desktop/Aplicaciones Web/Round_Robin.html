@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Round Robin</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    }
+
+    h1 {
+    text-align: center;
+    }
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px;
+      box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+      background-color: #f9f9f9;
+    }
+
+    .card-header {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .card-body {
+      margin-left: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 id="anuncio">Round Robin (Simulación)</h1>
+
+  <input type="number" name="numProcesos" placeholder="Número de Procesos">
+  <input type="button" name="botonAceptar" value="Aceptar" onclick="realizarBoton()">
+
+  <div id="simulacion-container"></div>
+
+  <script lang="javascript">
+    let lineasDeCodigo = ["a = 1 + 2", "console.log('1+2')", "console.log(a)", "Terminado"];
+    let listaProcesos = [];
+    let numSimulacion = 0;
+
+    function elegirLineas(proceso) {
+      let numLineas = Math.floor(Math.random() * lineasDeCodigo.length);
+      for (let i = 0; i <= numLineas; i++) {
+        proceso.arregloCadena.push(lineasDeCodigo[Math.floor(Math.random() * lineasDeCodigo.length)]);
+      }
+    }
+
+    function inicializarSimulacion(N, listaProcesos) {
+      for (let i = 0; i < N; i++) {
+        listaProcesos.push({ id: (i + 1), arregloCadena: [] });
+        elegirLineas(listaProcesos[i]);
+      }
+    }
+
+    function empezarSimulacion(listaProcesos) {
+      let simulacionContainer = document.getElementById("simulacion-container");
+      simulacionContainer.innerHTML += `<h2>Simulación ${numSimulacion}</h2>`;
+
+      let b = false;
+      while (b === false) {
+        for (let i = 0; i < listaProcesos.length; i++) {
+          let proceso = listaProcesos[i];
+          let cadena = proceso.arregloCadena.shift();
+
+          let cardHtml = `
+            <div class="card">
+              <div class="card-header">Proceso ${proceso.id}</div>
+              <div class="card-body">
+                ${cadena ? cadena : "Terminado"}
+              </div>
+            </div>
+          `;
+
+          simulacionContainer.innerHTML += cardHtml;
+        }
+        b = verificarListasVacias(listaProcesos);
+      }
+    }
+
+    function verificarListasVacias(listaProcesos) {
+      return listaProcesos.every(proceso => proceso.arregloCadena.length === 0);
+    }
+
+    function realizarBoton() {
+      numSimulacion++;
+      let N = document.getElementsByName("numProcesos")[0].value;
+      inicializarSimulacion(N, listaProcesos);
+      empezarSimulacion(listaProcesos);
+      listaProcesos = [];
+    }
+  </script>
+</body>
+
+</html>

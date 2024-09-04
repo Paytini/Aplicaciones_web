@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Solar</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilo para el encabezado con imagen de fondo */
+        .header {
+            background-image: url('images/sistema_solar.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white; /* Cambiare el color a blanco */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+        }
+
+        /* Estilo para las tarjetas (No los imagenes) */
+        .card {
+            border-radius: 20px;
+        }
+
+        .card img {
+            border-radius: 20px 20px 0 0;
+        }
+
+    /* Estilo para el subrayado de los titulos*/
+    .highlight {
+        display: inline-block;
+        position: relative;
+        padding: 0.2em;
+        z-index: 1;
+    }
+
+    .highlight::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 0.3em;
+        background-color: #D1B2D6;
+        z-index: -1;
+    }
+
+        
+
+    </style>
+</head>
+<body>
+
+    <script lang="javascript"> 
+        function miFuncion() {
+            alert("Quieres ayuda?, Pues no :) ");
+
+        }
+    </script>
+
+    <!-- Encabezado con imagen de fondo -->
+    <header class="header">
+        <h1>Explorando el Sistema Solar</h1>
+    </header>
+
+    <!-- Sección de tarjetas, ambas en el centro -->
+    <section class="container my-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <img src='images/tierra.jpg' class="card-img-top" alt="Tierra" style="height: 290px">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <span class="highlight">Planeta Tierra</span>
+                        </h5>
+                        <p class="card-text">La Tierra es el tercer planeta desde el Sol y el único lugar conocido en el universo donde existe vida.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <img src='images/marte.jpg' class="card-img-top" alt="Marte" style="height: 290px">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <span class="highlight">Planeta Marte</span>
+                        </h5>
+                        <p class="card-text">Marte es el cuarto planeta desde el Sol, conocido como el planeta rojo debido a su apariencia rojiza.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de tabla -->
+    <section class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Planeta</th>
+                    <th>Distancia del Sol</th>
+                    <th>Diámetro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tierra</td>
+                    <td>149.6 millones de km</td>
+                    <td>12,742 km</td>
+                </tr>
+                <tr>
+                    <td>Marte</td>
+                    <td>227.9 millones de km</td>
+                    <td>6,779 km</td>
+                </tr>
+            </tbody>
+        </table>
+        <!-- Boton debajo de la tabla -->
+        <div class="text-center my-4">
+            <a href="https://www.nasa.gov" class="btn btn-primary">Explorar Más</a>
+        </div>
+
+        <div class="boton">
+            <a boton onclick="miFuncion()" class="btn btn-primary">Ayuda</a>
+        </div>
+
+        
+    </section>
+
+    <!-- Pie de página debajo del boton -->
+    <footer class="text-center text-muted py-3">
+        &copy; 2024 Sistema Solar. Todos los derechos reservados.
+    </footer>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
